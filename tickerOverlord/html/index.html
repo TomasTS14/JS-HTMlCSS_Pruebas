@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleWhenScroll.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <title>TicketOverlord</title>
+    <script src="../js/movimientoPagina.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>TicketOverlord</h1>
+        <h1 onclick="cambiarTituloColor()">TicketOverlord</h1>
     </header>
     <nav>
         <ul>
@@ -26,11 +28,11 @@
     </nav>
     <main>
         <section id="Bienvenido">
-            <div>
+            <div class="divInternoBase">
                 <h1>Bienvenido a TickerOverlord</h1>
                 <p>En TicketOverlord nos dedicamos a ti y tus aficiones, pues conseguimos los mejores precios para
                     los mejores eventos sociales, culturales, etc.
-                <p> En nuestra tienda podrás encontrar eventos de todos
+                <p> En nuestra tienda podrás enco ntrar eventos de todos
                     los tipos</p>
                 <p>desde conciertos de metal, rock, hasta obras de teatro y opera</p>
 
@@ -39,8 +41,11 @@
             </div>
         </section>
         <section id="catalogo">
-            <h1>Nuestro catalogo</h1>
-            <div id="catalogo"></div>
+            <div class="divInternoBase">
+                <h1>Nuestro catalogo</h1>
+                <div id="catalogo"></div>
+            </div>
+
         </section>
         <section id="metodos_de_pago">
             <h1>Metodos de pago disponibles</h1>
