@@ -11,21 +11,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <title>TicketOverlord</title>
-    <script src="../js/movimientoPagina.js"></script>
+
 </head>
 
 <body>
-    <header>
-        <h1 onclick="cambiarTituloColor()">TicketOverlord</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a>Catalogo</a></li>
-            <li><a>Calendario</a></li>
-            <li><a>Metodos de pago</a></li>
-            <li><a>Sobre nosotros</a></li>
-        </ul>
-    </nav>
+    <div id="header">
+        <header>
+            <h1 data-text="TicketOverlord" id="titulo">TicketOverlord</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Catalogo</a></li>
+                <li><a href="#">Calendario</a></li>
+                <li><a href="#">Metodos de pago</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <main>
         <section id="Bienvenido">
             <div class="divInternoBase">
@@ -55,7 +58,7 @@
 
 
 
-
+    <script src="../js/movimientoPagina.js"></script>
 </body>
 
 </html>

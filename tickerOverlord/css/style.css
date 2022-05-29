@@ -4,20 +4,58 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#header {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    box-shadow: 10px 10px 16px 8px rgba(0, 0, 0, 0.33);
+
+}
+
+#header a {
+    text-decoration: none;
+    color: inherit;
+}
+
 header {
-    height: 3em;
-    text-align: center;
+    display: flex;
+    height: 50px;
+    justify-content: center;
     font-family: 'Righteous', cursive;
     background-color: black;
-    color: white;
+
 }
+
+
+#titulo {
+    position: absolute;
+    color: white;
+
+}
+
+#titulo::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgb(198, 0, 0);
+    overflow: hidden;
+    width: 0%;
+    transition: 2s;
+}
+
+#titulo:hover::before {
+    width: 100%;
+}
+
 
 
 nav>ul {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
-    color: aliceblue;
+    color: white;
     background: linear-gradient(90deg, rgb(142, 4, 4) 0%, rgb(64, 0, 0) 100%, rgba(0, 212, 255, 1) 100%);
     justify-content: flex-start;
     align-items: center;
@@ -33,12 +71,12 @@ nav ul li {
 
 nav ul li:hover {
 
-    transform: skewX(12deg) scale(1.2);
+    text-decoration: underline;
 
 }
 
 main {
-
+    top: 100px;
     display: flexbox;
     flex-direction: column;
     position: absolute;
@@ -71,13 +109,24 @@ section {
 
 }
 
-#Bienvenido div {
+.divInternoBase {
     position: absolute;
     padding: 1em;
-    bottom: 1em;
+    bottom: 6em;
     background-color: rgba(223, 250, 255, 0.2);
     box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.3);
     border-radius: 1em;
+    opacity: 0;
+    transition: 1s linear;
+}
+
+.divInternoBase.active {
+    opacity: 1;
+}
+
+.divInternoBase:hover {
+    transform: scaleX(1.04) scaleY(1.2);
+
 }
 
 #catalogo {
