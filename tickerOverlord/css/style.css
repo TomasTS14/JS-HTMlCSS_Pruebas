@@ -4,6 +4,40 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+body {
+    overflow: overlay;
+    /* Para poder tener una scroll bar transparente*/
+}
+
+/*Como cambiar el estilo del scroll bar, 
+puedo cambiarle el ancho, dar un fondo
+modificar especficamente el trocito que señala la parte en la que estas*/
+
+body::-webkit-scrollbar {
+    width: 18px;
+
+
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+    /*asi no tiene fondo la barra de scroll, solo tengo el thumb flotando, esto solo funciona 
+    si body tiene overflow: overlay OSEA que cuando se sale el cuerpo de su espacio, se sobrepone a lo que sea que esté.
+   */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(148, 7, 7);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+
+}
+
+
+
+
 #header {
     top: 0;
     width: 100%;
@@ -42,11 +76,12 @@ header {
     color: rgb(198, 0, 0);
     overflow: hidden;
     width: 0%;
-    transition: 2s;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #titulo:hover::before {
     width: 100%;
+
 }
 
 
@@ -101,23 +136,37 @@ section {
 
 }
 
+img:hover {
+    transform: scale(1.08);
+}
+
+.imageGrid img {
+    margin: 1em;
+}
+
 #Bienvenido {
     position: relative;
     background-image: url("../img1.jpg");
     background-size: 100%;
     color: white;
 
+    /* parallax effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .divInternoBase {
     position: absolute;
     padding: 1em;
-    bottom: 6em;
+    bottom: 3em;
     background-color: rgba(223, 250, 255, 0.2);
     box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.3);
     border-radius: 1em;
     opacity: 0;
-    transition: 1s linear;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .divInternoBase.active {
@@ -125,17 +174,39 @@ section {
 }
 
 .divInternoBase:hover {
-    transform: scaleX(1.04) scaleY(1.2);
+    transform: scaleX(1.02) scaleY(1.02);
 
 }
 
 #catalogo {
+    color: white;
     position: relative;
     background-image: url("../imgCatalogo.jpg");
     background-size: 100%;
+
+    /*parallax effect , principalmente afectan el attachment fixed, que bloquea la imagen ena zona
+    y el bgsize cover, que hace que la imagen ocupe el total del container*/
+    /* background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 
 #catalogo>div {
     position: absolute;
+
+}
+
+#metodosPagoSection {
+
+    /*tiene parallax*/
+    position: relative;
+    background-size: 100%;
+
+    background-image: url("../img1.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
