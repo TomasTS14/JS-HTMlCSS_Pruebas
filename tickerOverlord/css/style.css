@@ -13,6 +13,7 @@ body {
 puedo cambiarle el ancho, dar un fondo
 modificar especficamente el trocito que señala la parte en la que estas*/
 
+
 body::-webkit-scrollbar {
     width: 18px;
 
