@@ -1,38 +1,94 @@
-const btn = document.querySelector('button');
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+// const btn = document.querySelector('button');
+// const canvas = document.querySelector('canvas');
+// const ctx = canvas.getContext('2d');
+
+/* Aqui me estoy trayendo el objeto button y canvas, y del canvas estoy sacando su "formato", sobre el cual puedo trabajr */
+
+// let WIDTH = document.documentElement.clientWidth;
+// let HEIGHT = document.documentElement.clientHeight;
+
+/**Esto parece ser constantes sobre como sacar la altura y anchura de la pantalla del cleinte */
+
+// canvas.width = WIDTH;
+// canvas.height = HEIGHT;
+/**EL objeto canvas, accedo a sus propiedades y le doy las constantes del cliente de anchura y altura */
+
+// function random(number) {
+//     return Math.floor(Math.random()*number);
+// }
+/**Una funcion para enerar un numero aleatorio de 0 a n */
+// function draw() {
+//     ctx.clearRect(0,0,WIDTH,HEIGHT);    Esto comienza en el punto x,y y limpia desde ahi en la anchura y altura indicadas
+//     for(let i = 0; i < 100; i++) {
+//         ctx.beginPath();    //vacia subrutas y comeinza a dibujar una nueva.
+//         ctx.fillStyle = 'rgba(255,0,0,0.5)';
+//         ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
+//         ctx.arc(random(WIDTH),random(HEIGHT),100,90,3*Math.PI,true); El primer valor es donde en x, y el segundo es y,  el largo del radio, el angulo 
+/**donde comienza y no se el ultimo */
+//         ctx.fill();
+//     }
+// }
+
+// btn.addEventListener('click',draw);
 
 
+// function logkey(event){
+/**Existe el evento, el cual tiene propiedades y metodos que puedo usar, igual 
+que  existe el evento 'keydown'*/
+//     console.log(event.key);
+// }
 
-let WIDTH = document.documentElement.clientWidth;
-let HEIGHT = document.documentElement.clientHeight;
+// addEventListener('keydown',logkey);
+/**ESLINT????????????????????????''' */
 
+// addEventListener('keydown', (event) => {
+//     document.getElementById("p1").textContent += event.key;
+// })  
+/*Estoy escribiendo todas las teclas que se presionan en p, la unica tecla que no sale es espacio. */
+
+function randomColor() {
+    let color = Math.round(Math.random() * 255);
+    return color;
+}
+
+addEventListener('keydown', (e) => {            /**Esto es una forma de formatear un string con variables (o valores de funciones) */
+    document.body.style.backgroundColor = ` rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`; /**FORMA DE FORMATEAR STRINGS QUE INCLUYEN VARIABLES */
+    console.log(randomColor() + "," + randomColor() + "," + randomColor()); /**-<<<------- log por si aca */
+});
+addEventListener('mousemove', (e) => {            /**Esto es una forma de formatear un string con variables (o valores de funciones) */
+    document.body.style.backgroundColor = ` rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`; /**FORMA DE FORMATEAR STRINGS QUE INCLUYEN VARIABLES */
+    console.log(randomColor() + "," + randomColor() + "," + randomColor()); /**-<<<------- log por si aca */
+});
+
+
+/**Prueba con canvas de escribir en lugares aleatorios: */
+
+
+// const { readFileSync, promises: fsPromises } = require('fs'); *********************
+
+const WIDTH = document.documentElement.clientWidth;
+const HEIGHT = document.documentElement.clientHeight;
+
+function randomNumber(number) {
+    return Math.floor(Math.random() * number);
+}
+
+const canvas = document.querySelector("canvas");
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
+const ctx = canvas.getContext('2d');
+ctx.font = "2em Impact";
+const frases = document.querySelector('p').textContent;
+const frasesArray = frases.split(".");
+console.log(frasesArray);
+function dibujarFrase() {
 
-function random(number) {
-    return Math.floor(Math.random()*number);
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    ctx.fillText(frasesArray[randomNumber(frasesArray.length)], randomColor(WIDTH), randomNumber(HEIGHT));
+    console.log('a');
+
 }
 
-function draw() {
-    ctx.clearRect(0,0,WIDTH,HEIGHT);
-    for(let i = 0; i < 100; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = 'rgba(255,0,0,0.5)';
-        ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
-        ctx.arc(random(WIDTH),random(HEIGHT),100,90,3*Math.PI,true);
-        ctx.fill();
-    }
-}
-
-btn.addEventListener('click',draw);
-
-
-function logkey(event){
-    console.log(event.key);
-}
-
-addEventListener('keydown',logkey);
-
-
+addEventListener('keydown', dibujarFrase);
+addEventListener('mousemove', dibujarFrase);
 
