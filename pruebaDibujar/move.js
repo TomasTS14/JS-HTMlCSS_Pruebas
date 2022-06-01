@@ -46,32 +46,16 @@ que  existe el evento 'keydown'*/
 // })  
 /*Estoy escribiendo todas las teclas que se presionan en p, la unica tecla que no sale es espacio. */
 
-function randomColor() {
-    let color = Math.round(Math.random() * 255);
-    return color;
-}
-
-addEventListener('keydown', (e) => {            /**Esto es una forma de formatear un string con variables (o valores de funciones) */
-    document.body.style.backgroundColor = ` rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`; /**FORMA DE FORMATEAR STRINGS QUE INCLUYEN VARIABLES */
-    console.log(randomColor() + "," + randomColor() + "," + randomColor()); /**-<<<------- log por si aca */
-});
-addEventListener('mousemove', (e) => {            /**Esto es una forma de formatear un string con variables (o valores de funciones) */
-    document.body.style.backgroundColor = ` rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`; /**FORMA DE FORMATEAR STRINGS QUE INCLUYEN VARIABLES */
-    console.log(randomColor() + "," + randomColor() + "," + randomColor()); /**-<<<------- log por si aca */
-});
-
 
 /**Prueba con canvas de escribir en lugares aleatorios: */
 
 
 // const { readFileSync, promises: fsPromises } = require('fs'); *********************
 
+
+
 const WIDTH = document.documentElement.clientWidth;
 const HEIGHT = document.documentElement.clientHeight;
-
-function randomNumber(number) {
-    return Math.floor(Math.random() * number);
-}
 
 const canvas = document.querySelector("canvas");
 canvas.width = WIDTH;
@@ -80,7 +64,44 @@ const ctx = canvas.getContext('2d');
 ctx.font = "2em Impact";
 const frases = document.querySelector('p').textContent;
 const frasesArray = frases.split(".");
-console.log(frasesArray);
+
+
+let playing = false;
+let audio = document.querySelector("audio"); //TRAIGO EL ELEMENTO AUDIO, QUE por defecto esta en preload
+
+function randomNumber(number) {
+    return Math.floor(Math.random() * number);
+}
+
+function randomColor() {
+    let color = Math.round(Math.random() * 40);
+    return color;
+}
+
+function randomColorBG() {
+    let isItNightmare = randomNumber(100);
+    console.log(isItNightmare);
+    switch (true) {  //EL SWITCH (TRUE) permite hacer un switch que funcione con condicionales, evaluara si el condicional es el booleano del switch o no
+        case (isItNightmare < 5):
+            document.body.style.backgroundImage = "url('dreamCore1.png')";
+            break;
+        case (isItNightmare > 5 && isItNightmare < 10):
+            document.body.style.backgroundImage = "url('dreamCore2.jpg')";
+            break;
+        case (isItNightmare > 10 && isItNightmare < 15):
+            document.body.style.backgroundImage = "url('dreamCore3.jfif')";
+            break;
+        default:
+            document.body.style.background = ` rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+    }
+
+
+
+
+
+
+}
+
 function dibujarFrase() {
 
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
@@ -89,6 +110,36 @@ function dibujarFrase() {
 
 }
 
+
+
+function playMusic() {
+
+    if (playing == false) {
+        audio.play();
+        playing = true; //LOS ELEMENTOS AUDIOS LOS PEUDO REPRODUCIR, LOS CONSOLE LOG SON DE CONTROL
+        console.log("play" + audio.src);
+    } else if (playing == true) {
+        audio.pause();
+        playing = false;
+        console.log("pause");
+    }
+
+
+}
+
+
 addEventListener('keydown', dibujarFrase);
 addEventListener('mousemove', dibujarFrase);
-
+addEventListener('keydown', randomColorBG
+    //ahora solo llamo una funcion, resto de codigo aqui deprecated        
+    /**Esto es una forma de formatear un string con variables (o valores de funciones) */
+    // document.body.style.backgroundColor = ` rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`; /**FORMA DE FORMATEAR STRINGS QUE INCLUYEN VARIABLES */
+    // console.log(randomColor() + "," + randomColor() + "," + randomColor()); /**-<<<------- log por si aca */
+);
+addEventListener('mousemove', randomColorBG);//(e) => { 
+//cambio el crear funcion interna con unica funcion, resto de codigo DEPRECATED
+/**Esto es una forma de formatear un string con variables (o valores de funciones) */
+// document.body.style.backgroundColor = ` rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`; /**FORMA DE FORMATEAR STRINGS QUE INCLUYEN VARIABLES */
+// console.log(randomColor() + "," + randomColor() + "," + randomColor()); /**-<<<------- log por si aca */
+addEventListener('mousemove', playMusic);
+addEventListener('keydown', playMusic);
