@@ -146,3 +146,14 @@ addEventListener('keydown', playMusic);
 addEventListener('scroll', playMusic);
 addEventListener('scroll', dibujarFrase);
 addEventListener('scroll', randomColorBG);
+
+
+/**>Funcionalidad movil */
+function doAllOnMobile() {
+    randomColorBG();
+    dibujarFrase();
+    playMusic();
+}
+addEventListener('touchstart', doAllOnMobile);
+addEventListener('touchend', doAllOnMobile);
+addEventListener('touchmove', doAllOnMobile);
