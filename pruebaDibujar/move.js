@@ -143,3 +143,6 @@ addEventListener('mousemove', randomColorBG);//(e) => {
 // console.log(randomColor() + "," + randomColor() + "," + randomColor()); /**-<<<------- log por si aca */
 addEventListener('mousemove', playMusic);
 addEventListener('keydown', playMusic);
+addEventListener('scroll', playMusic);
+addEventListener('scroll', dibujarFrase);
+addEventListener('scroll', randomColorBG);
