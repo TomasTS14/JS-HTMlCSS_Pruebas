@@ -137,11 +137,18 @@ section {
 
 }
 
-img:hover {
+.imageGrid>img:hover {
     transform: scale(1.08);
 }
 
-.imageGrid img {
+.imageGrid {
+    width: 100%;
+    height: 25%;
+    padding: 0.5em;
+}
+
+.imageGrid>img {
+
     margin: 1em;
 }
 
@@ -179,6 +186,8 @@ img:hover {
 
 }
 
+
+
 #catalogo {
     color: white;
     position: relative;
@@ -191,6 +200,31 @@ img:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
+}
+
+.datosEvento {
+
+    display: none;
+    grid-template-columns: 3;
+    opacity: 0;
+    box-sizing: border-box;
+    position: absolute;
+
+    transition: 2s;
+
+}
+
+
+.datosEvento.active {
+    display: grid;
+    opacity: 1;
+
+}
+
+.datosEvento.active>img {
+    width: 340px;
+    height: 220px;
+    box-sizing: border-box;
 }
 
 #catalogo>div {
