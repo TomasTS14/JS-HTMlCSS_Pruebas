@@ -149,7 +149,7 @@ section {
 
 .imageGrid>img {
 
-    margin: 1em;
+    margin: 2em;
 }
 
 #Bienvenido {
@@ -205,25 +205,27 @@ section {
 .datosEvento {
 
     display: none;
-    grid-template-columns: 3;
     opacity: 0;
-    box-sizing: border-box;
-    position: absolute;
-
-    transition: 2s;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 }
 
 
 .datosEvento.active {
-    display: grid;
+    box-sizing: border-box;
+    top: 0px;
+    position: absolute;
+    display: flex;
+    background-color: rgb(138, 138, 138);
     opacity: 1;
+    box-sizing: border-box;
+
 
 }
 
 .datosEvento.active>img {
     width: 340px;
-    height: 220px;
+    height: 400px;
     box-sizing: border-box;
 }
 

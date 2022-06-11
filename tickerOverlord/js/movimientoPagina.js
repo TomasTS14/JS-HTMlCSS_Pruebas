@@ -105,6 +105,7 @@ const hideALLEventData = () => {
         let element = datosEventoList[i];
         if (element.classList.contains("active")) {
             element.classList.remove("active");
+
         }
     }
 }
@@ -113,18 +114,21 @@ const showEventData = (i) => {
     let elementEvento = document.getElementsByClassName("evento")[i];
     let datosEvento = document.getElementsByClassName("datosEvento")[i];
 
+    if (!elementEvento.hasAttribute("done")) {
+        datosEvento.querySelector("img").setAttribute("src", (elementEvento.getAttribute("src")));
+        datosEvento.querySelector("h1").textContent = elementEvento.getAttribute("alt");
+        datosEvento.querySelector(".textoEvento").innerHTML += textos[0];
+        datosEvento.classList.add("active");
 
-    datosEvento.querySelector("img").setAttribute("src", (elementEvento.getAttribute("src")));
-    datosEvento.querySelector("h1").textContent = elementEvento.getAttribute("alt");
-    datosEvento.querySelector(".textoEvento").innerHTML = textos[0];
-    datosEvento.classList.add("active");
-
+    }
+    elementEvento.setAttribute("done", true);
 }
 const hideOrShowEventData = (element) => {
     if (!element.classList.contains("active")) {
         element.classList.add("active");
     } else {
         element.classList.remove("active");
+        elemennt.innerHTML = "";
 
     }
 }
